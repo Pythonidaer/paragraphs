@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Room to Talk</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #cbd9e5; overflow: hidden; }
+.stage { position: relative; width: 100%; height: 100dvh; overflow: hidden; }
+.track { display: flex; width: 100%; height: 100%; transition: transform 520ms cubic-bezier(.27,.75,.28,1); }
+.track svg { display: block; flex: 0 0 100%; width: 100%; height: 100%; }
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 88px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+.arrow svg { width: 36px; height: 52px; filter: drop-shadow(0 1px 3px #12151b); }
+.arrow[hidden] { display: none; }
+.arrow:focus-visible { outline: 2px solid white; outline-offset: -6px; }
+.stage[data-show-arrows] .arrow, .arrow:focus-visible { opacity: 1; }
+.previous { left: 8px; }
+.next { right: 8px; }
+@media (hover: none) { .arrow { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .track, .arrow { transition: none; } }
+
+.scene-excerpt {
+  position: absolute;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  width: min(100% - 32px, var(--excerpt-width, clamp(380px, 42vw, 720px)));
+  max-height: calc(100% - 32px);
+  overflow: auto;
+  padding: 16px 20px;
+  border: 1px solid #0002;
+  border-radius: 16px;
+  color: #000;
+  background: #fff;
+  font: 500 clamp(16px, 1.4vw, 21px)/1.45 system-ui, sans-serif;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+.scene-excerpt[hidden] { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .scene-excerpt:not([hidden]) { animation: excerpt-enter 320ms ease-out both; }
+}
+@keyframes excerpt-enter {
+  from { opacity: 0; translate: 0 16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+.scene-excerpt:focus-visible { outline: 2px solid #24243b; outline-offset: 3px; }
+.scene-excerpt[data-position="top-left"],
+.scene-excerpt[data-position="below-lights"],
+.scene-excerpt[data-position="bottom-left"] {
+  left: max(16px, env(safe-area-inset-left));
+  right: auto;
+}
+.scene-excerpt[data-position="top-left"],
+.scene-excerpt[data-position="below-lights"] {
+  top: max(16px, env(safe-area-inset-top));
+  bottom: auto;
+  max-height: calc(100% - 32px);
+}
+.scene-excerpt[data-position="below-lights"] { top: max(10%, calc(env(safe-area-inset-top) + 16px)); }
+.scene-excerpt[data-position="bottom-center"] { right: 50%; transform: translateX(50%); }
+.stage[data-split-excerpt] .scene-excerpt { max-height: calc(50% - 24px); }
+@media (max-width: 620px) {
+  .scene-excerpt { padding: 12px; }
+  .scene-excerpt[style] { width: var(--excerpt-width); }
+  .stage[data-split-excerpt] .scene-excerpt:not([style]) { width: min(82%, 380px); }
+  .stage[data-split-excerpt] .scene-excerpt[data-position="bottom-left"],
+  .stage[data-split-excerpt]:has(.scene-excerpt--first[data-position="bottom-left"], .scene-excerpt--first[data-position="top-left"] + [data-position="bottom-left"]) .scene-excerpt {
+    width: var(--excerpt-width, 45%);
+  }
+}
+.spin { transform-origin: 480px 270px; }
+[aria-hidden="false"] .spin { animation: room-spin 5.5s linear infinite; }
+@keyframes room-spin { to { transform: rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) { [aria-hidden="false"] .spin { animation: none; } }
+</style>
+
+</head>
+<body>
+<main class="stage" aria-label="Room to Talk">
+  <div class="track" id="track"></div>
+  <button class="arrow previous" id="previous" type="button" aria-label="Previous slide">
+    <svg viewBox="0 0 36 52" aria-hidden="true"><path d="M24 10 9 26l15 16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="arrow next" id="next" type="button" aria-label="Next slide">
+    <svg viewBox="0 0 36 52" aria-hidden="true"><path d="m12 10 15 16-15 16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="scene-excerpt scene-excerpt--first" id="excerpt-first" aria-label="Letter excerpt, part one" role="region" tabindex="0" hidden></div>
+  <div class="scene-excerpt" id="scene-excerpt" aria-label="Letter excerpt" role="region" tabindex="0" hidden></div>
+</main>
+<script>
+  if (sessionStorage.getItem('paragraphs-unlocked') !== 'yes') {
+    window.location.replace('../');
+  } else {
+    for (const source of ['./art.js', './story.js', './slides.js']) {
+      const script = document.createElement('script');
+      script.src = source;
+      script.async = false;
+      document.head.append(script);
+    }
+  }
+</script>
+</body>
+</html>
