@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Paragraphs by Jonathan Hammond</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #83c9f4; background: #000; font: 16px system-ui, sans-serif; }
+  main { min-height: 100dvh; display: grid; grid-template-rows: 1fr auto 1fr; padding: clamp(24px, 6vw, 88px); }
+  h1 { grid-row: 2; width: min(100%, 980px); margin: 0 auto; }
+  h1 svg { display: block; width: 100%; height: auto; overflow: visible; }
+  main { overflow-x: clip; }
+  @media (prefers-reduced-motion: no-preference) {
+    .intro-title { --entrance-offset: -42px; animation: letter-entrance 640ms ease-out both; }
+    .intro-byline { --entrance-offset: 38px; animation: letter-entrance 640ms ease-out 180ms both; }
+    form { animation: login-entrance 500ms ease-out 880ms both; }
+    form:focus-within, form:has(.error:not([hidden])) { animation: none; }
+  }
+  @keyframes login-entrance {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes letter-entrance {
+    from { opacity: 0; transform: translateX(var(--entrance-offset)); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  form { grid-row: 3; align-self: end; justify-self: center; width: min(100%, 350px); margin-top: clamp(18px, 4vh, 44px); }
+  label { display: grid; justify-items: center; margin-bottom: 12px; }
+  label svg { display: block; width: 72px; height: auto; }
+  .field { display: flex; border: 1px solid #527e99; border-radius: 8px; overflow: hidden; }
+  input, button { font: inherit; }
+  input { min-width: 0; flex: 1; border: 0; color: #83c9f4; background: #0b1118; padding: 14px 16px; }
+  button { width: 54px; border: 0; color: #000; background: #83c9f4; font-size: 20px; cursor: pointer; }
+  :focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+  .error { margin: 8px 0 0; color: #ace0ff; }
+</style>
+</head>
+<body>
+<main>
+  <h1 aria-label="PARAGRAPHS by jonathan hammond"><svg aria-hidden="true" viewBox="0 19 1030 226" fill="none" stroke="#83c9f4" stroke-linecap="round" stroke-linejoin="round">
+    <g class="intro-title" stroke-width="16">
+      <path transform="translate(34 45) rotate(-2 42 55)" d="M12 101L14 9Q66 0 68 29Q69 54 14 55"/>
+      <path transform="translate(133 47) rotate(1 42 55)" d="M7 101L39 9Q43 4 47 12L75 100M20 70L62 68"/>
+      <path transform="translate(232 43) rotate(-1 42 55)" d="M13 100L15 10Q70 2 70 30Q68 54 15 56M40 55Q56 73 75 100"/>
+      <path transform="translate(331 48) rotate(2 42 55)" d="M7 101L39 9Q43 4 47 12L75 100M20 70L62 68"/>
+      <path transform="translate(430 42) rotate(-2 42 55)" d="M73 23Q64 6 42 8Q12 10 10 53Q8 98 40 101Q73 104 76 60L49 61"/>
+      <path transform="translate(529 47) rotate(1 42 55)" d="M13 100L15 10Q70 2 70 30Q68 54 15 56M40 55Q56 73 75 100"/>
+      <path transform="translate(628 45) rotate(-2 42 55)" d="M7 101L39 9Q43 4 47 12L75 100M20 70L62 68"/>
+      <path transform="translate(727 43) rotate(2 42 55)" d="M12 101L14 9Q66 0 68 29Q69 54 14 55"/>
+      <path transform="translate(826 46) rotate(-1 42 55)" d="M11 10L13 101M74 8L70 100M13 57L72 54"/>
+      <path transform="translate(925 45) rotate(2 42 55)" d="M70 23Q58 3 35 9Q11 14 12 36Q13 52 43 57Q74 61 72 81Q69 104 39 102Q15 102 7 87"/>
+    </g>
+    <g class="intro-byline"><g transform="translate(480.4 211) scale(1.45)" stroke-width="2.7">
+      <path transform="translate(0 0)" d="M3-25L3 0M3-10Q7-18 13-13Q18-9 14-3Q10 3 3-2"/>
+      <path transform="translate(20 0)" d="M1-14L8-1M16-15L6 7Q4 10 0 8"/>
+      <path transform="translate(50 0)" d="M7-14L7 3Q7 10 0 8M7-21l0 .5"/>
+      <path transform="translate(62 0)" d="M16-8Q16-15 9-15Q1-15 1-7Q1 1 9 1Q16 0 16-8Z"/>
+      <path transform="translate(82 0)" d="M2 0L2-14M2-9Q7-17 13-13Q16-10 15 0"/>
+      <path transform="translate(102 0)" d="M15-12Q3-19 1-8Q0 0 8 1Q12 0 15-4M15-14L15 0"/>
+      <path transform="translate(122 0)" d="M7-22L6-5Q6 2 13 0M1-14L13-14"/>
+      <path transform="translate(138 0)" d="M2-25L2 0M2-9Q7-17 13-13Q16-10 15 0"/>
+      <path transform="translate(158 0)" d="M15-12Q3-19 1-8Q0 0 8 1Q12 0 15-4M15-14L15 0"/>
+      <path transform="translate(178 0)" d="M2 0L2-14M2-9Q7-17 13-13Q16-10 15 0"/>
+      <path transform="translate(208 0)" d="M2-25L2 0M2-9Q7-17 13-13Q16-10 15 0"/>
+      <path transform="translate(228 0)" d="M15-12Q3-19 1-8Q0 0 8 1Q12 0 15-4M15-14L15 0"/>
+      <path transform="translate(248 0)" d="M2 0L2-14M2-9Q7-17 13-12L13 0M13-9Q18-17 23-12Q26-9 25 0"/>
+      <path transform="translate(278 0)" d="M2 0L2-14M2-9Q7-17 13-12L13 0M13-9Q18-17 23-12Q26-9 25 0"/>
+      <path transform="translate(308 0)" d="M16-8Q16-15 9-15Q1-15 1-7Q1 1 9 1Q16 0 16-8Z"/>
+      <path transform="translate(328 0)" d="M2 0L2-14M2-9Q7-17 13-13Q16-10 15 0"/>
+      <path transform="translate(348 0)" d="M15-25L15 0M15-11Q6-19 2-11Q-1-3 6 0Q12 2 15-4"/>
+    </g></g>
+  </svg></h1>
+  <form>
+    <label for="password" aria-label="Login">
+      <svg aria-hidden="true" viewBox="4 0 238 60" fill="none" stroke="#83c9f4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 8L11 52 43 51 M71 7Q53 8 52 29Q51 51 70 53Q89 54 91 30Q92 8 71 7Z"/>
+        <path d="M142 13Q133 4 121 8Q104 12 104 33Q104 54 124 53Q141 53 142 33L128 34"/>
+        <path d="M158 9L181 8M170 9L170 51M158 52L181 51 M198 52L198 8 235 51 236 8"/>
+      </svg>
+    </label>
+    <div class="field">
+      <input id="password" type="password" autocomplete="current-password" autocapitalize="none" required>
+      <button type="submit" aria-label="Sign in">→</button>
+    </div>
+    <p class="error" role="alert" hidden></p>
+  </form>
+</main>
+<script>
+  const form = document.querySelector('form');
+  const password = document.querySelector('#password');
+  const error = document.querySelector('.error');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (password.value !== 'hatchet') {
+      error.textContent = 'Incorrect password. Try again.';
+      error.hidden = false;
+      password.focus();
+      password.select();
+      return;
+    }
+
+    sessionStorage.setItem('paragraphs-unlocked', 'yes');
+    window.location.assign('./presentation/');
+  });
+</script>
+</body>
+</html>
